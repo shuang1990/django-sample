@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>手机号</th>
+            <th>账户余额</th>
+            <th>身份证号</th>
+            <th>姓名</th>
+            <th>注册时间</th>
+        </tr>
+        {% for user in user_list %}
+            <tr>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.balance }}</td>
+                <td>{{ user.identity_card }}</td>
+                <td>{{ user.real_name }}</td>
+                <td>{{ user.created_at|date:"Y-m-d H:i:s" }}</td>
+                <td><a href="{% url 'jdy:info' user.id %}">编辑</a></td>
+                <td><a href="{% url 'jdy:delete' user.id %}">删除</a></td>
+
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

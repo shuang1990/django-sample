@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>User Register</title>
+</head>
+<body>
+    <h2>用户注册</h2>
+    <form action="{% url 'jdy:register' %}" method="post">
+        手机号：<input name="phone" type="text" value=""/><br/>
+        密码：<input name="password" type="password" value=""/><br/>
+        {% csrf_token %}
+        <input type="submit" value="确认">
+    </form>
+</body>
+</html>

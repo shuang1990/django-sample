@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Register</title>
+</head>
+<body>
+    <h2>用户实名</h2>
+    <form action="{% url 'user:doIdentity' %}" method="post">
+        身份证号：<input name="id_card" type="text"/><br/>
+        交易密码：<input name="trading_password" type="text"/><br/>
+        <input type="hidden" value="{{ user.id }}" name="user_id">
+        {% csrf_token %}
+        <input type="submit" value="确认">
+    </form>
+</body>
+</html>
