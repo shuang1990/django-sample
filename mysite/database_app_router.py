@@ -3,8 +3,8 @@ from django.conf import settings
 class DatabaseAppsRouter(object):
     def db_for_read(self, model, **hints):
         app_label = model._meta.app_label
-        if app_label == 'jiudouyu':
-            return 'read'
+        # if app_label == 'jiudouyu':
+        #     return 'read'
         if app_label in settings.DATABASES_APPS_MAPPING:
             return settings.DATABASES_APPS_MAPPING[app_label]
         else:

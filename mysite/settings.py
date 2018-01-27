@@ -25,7 +25,7 @@ SECRET_KEY = 'i5zexjvbkfgc+8cv%j7!36*$_mzg4ekrez9&kdsfqh@i&x&5&1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'www.wlask.com', '127.0.0.1']
 
 
 # Application definition
@@ -70,6 +70,18 @@ TEMPLATES = [
         },
     },
 ]
+
+# 替换成jinja2 template engine
+# TEMPLATES = [
+#     {
+#         'BACKEND': 'django.template.backends.jinja2.Jinja2',
+#         'DIRS': ['templates'],
+#         'APP_DIRS': True,
+#         'OPTIONS': {
+#             'environment': 'mysite.jinja2.environment'
+#         },
+#     },
+# ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
