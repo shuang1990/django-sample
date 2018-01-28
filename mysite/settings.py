@@ -45,6 +45,7 @@ MIDDLEWARE = [
     #'django.middleware.cache.UpdateCacheMiddleware',  # This must be first on the list
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -215,6 +216,6 @@ DATABASE_ROUTERS = ['mysite.database_app_router.DatabaseAppsRouter']
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
 
-# DATE_FORMAT = 'Y-m-d'
+DATE_FORMAT = 'Y-m-d'
 #
-# DATETIME_FORMAT = 'Y-m-d H:M:S'
+DATETIME_FORMAT = 'Y-m-d H:i:s'

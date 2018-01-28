@@ -162,7 +162,6 @@ class Invest(models.Model):
     assign_project_id = models.IntegerField(verbose_name='债转项目ID', default=0)
     user_id = models.IntegerField(verbose_name='用户ID', default=0)
     cash = models.DecimalField(verbose_name='投资金额', max_digits=20, decimal_places=2, default=0)
-    invested_amount = models.DecimalField(verbose_name='已投金额', max_digits=20, decimal_places=2, default=0)
     is_match = models.SmallIntegerField(verbose_name='是否匹配', default=100)
     invest_type = models.SmallIntegerField(verbose_name='投资来源', default=0)
     created_at = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
@@ -255,7 +254,14 @@ class User(models.Model):
     password_hash = models.CharField(verbose_name='密码', max_length=65, default='')
     trading_password = models.CharField(verbose_name='交易密码', max_length=65, default='')
     balance = models.DecimalField(verbose_name='账户余额', max_digits=20, decimal_places=2, default=0)
-    status_code = models.SmallIntegerField(verbose_name='用户状态', default=200)
+    STATUS_CHOICES = (
+        (0, '未知'),
+        (100, '激活'),
+        (200, '正常'),
+        (300, '异常'),
+        (400, '锁定')
+    )
+    status_code = models.SmallIntegerField(verbose_name='用户状态', choices=STATUS_CHOICES, default=200)
     real_name = models.CharField(verbose_name='姓名', max_length=30, default='')
     identity_card = models.CharField(verbose_name='身份证号', max_length=25, default='')
     note = models.CharField(verbose_name='备注', max_length=50, default='')
