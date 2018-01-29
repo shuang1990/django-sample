@@ -21,7 +21,8 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ('phone', 'real_name', 'identity_card', 'status_code')
         widgets = {
-            'note': forms.Textarea
+            'note': forms.Textarea(attrs={'cols': 20, 'rows': 4}),
+            'status_code': forms.RadioSelect,
         }
 
 

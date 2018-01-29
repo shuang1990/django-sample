@@ -1,6 +1,4 @@
 .idea/
 venv/
-mysite/__pycache__/*.pyc
-mysite/__pycache__/
 *.pyc
 */migrations/
